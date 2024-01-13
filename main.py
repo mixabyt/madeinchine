@@ -1,7 +1,4 @@
 import telebot
-from moviepy.editor import VideoFileClip
-# import os
-import sqlite3 as sq
 from time import sleep
 
 from my_token import TOKEN
@@ -15,20 +12,6 @@ from DATAFUCK.act_with_data import increment_message, give_info
 bot = telebot.TeleBot(TOKEN)
 
 
-
-# @bot.message_handler(content_types=['photo'])
-# def send_all(message):
-#     if message.chat.id == 713774587:
-#         photo = message.photo[-1].file_id
-#         with sq.connect("madeinchine/DATAFUCK/users.db") as con:
-#             cur = con.cursor()
-#             cur.execute(f'SELECT * FROM users')
-#             result = cur.fetchall()
-#             for i in result:
-#                 if i[2] == 0:
-#                     continue
-#                 else: bot.send_photo(i[0], photo)
-#     else: bot.send_message(message.chat.id, 'fuck you fominvic')
 
 
 @bot.message_handler(commands=['start'])
