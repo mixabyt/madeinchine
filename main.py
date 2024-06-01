@@ -6,7 +6,7 @@ from youtube import send_youtube_video
 from youtube import send_youtube_audio
 from DATAFUCK.act_with_data import new_users
 from message_processing import *
-from tiktok import send_tiktok_video, send_tiktok_audio
+from tiktok import send_tiktok
 from DATAFUCK.act_with_data import increment_message, give_info
 
 bot = telebot.TeleBot(TOKEN)
@@ -20,27 +20,27 @@ def get_start(message):
     bot.send_message(message.chat.id, f'Привіт!\n\
 Щоб завантажити відео або звук з YouTube або TikTok — надішли мені посилання.')
     increment_message(message)
-    
+
 
 
 @bot.message_handler(commands=['settings'])
 def settings(message):
     press_button(message)
     increment_message(message)
-    
+
 
 @bot.message_handler(commands=['info'])
 def info_database(message):
     if message.chat.id == 713774587:
-        bot.send_message(message.chat.id, give_info())        
+        bot.send_message(message.chat.id, give_info())
+
 
 
 
 @bot.callback_query_handler(func=lambda callback: callback.data)
 def check_callback(callback):
     turn_audio(callback)
-    
- 
+
 
 @bot.message_handler(func=youtube_link)
 def link(message):
@@ -48,11 +48,10 @@ def link(message):
         send_youtube_audio(message)
     increment_message(message)
 
-    
+
 @bot.message_handler(func=tiktok_link)
 def start_fuck(message):
-    if send_tiktok_video(message) != False:
-        send_tiktok_audio(message)
+    send_tiktok(message)
     increment_message(message)
 
 
@@ -68,3 +67,4 @@ while True:
     except Exception as _ex:
         print(_ex)
         sleep(15)
+                          
