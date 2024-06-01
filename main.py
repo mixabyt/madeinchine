@@ -36,22 +36,6 @@ def info_database(message):
 
 
 
-# @bot.message_handler(content_types=['video'])
-# def video_editor(message):
-#     video = message.video.file_id
-#     # bot.send_video_note(message.chat.id, video)
-#     file_info = bot.get_file(video)
-#     video_path = file_info.file_path
-#     video_clip = VideoFileClip(video_path)
-#     video_note_path = "D:\\tbot\\"
-#     video_clip.write_videofile(video_note_path, audio=False, codec="libx264", fps=24)
-
-#     bot.send_video_note(message.chat.id , open(video_note_path, 'rb'))
-
-#     video_clip.close()
-#     os.remove(video_note_path)
-
-
 @bot.callback_query_handler(func=lambda callback: callback.data)
 def check_callback(callback):
     turn_audio(callback)
