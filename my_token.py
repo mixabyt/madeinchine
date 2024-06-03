@@ -1,1 +1,1 @@
-TOKEN = ""
+TOKEN = "BOT'S TOKEN"
