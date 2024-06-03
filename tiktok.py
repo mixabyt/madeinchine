@@ -26,7 +26,7 @@ def download_tiktok_video(message):
         querystring = {"url":message.text,"hd":"1"}
 
         headers = {
-            "X-RapidAPI-Key": "5f3cbc7275msh23c08a087fe5546p1baee5jsnac68130e8aec",
+            "X-RapidAPI-Key": "YOURKEY",
             "X-RapidAPI-Host": "tiktok-video-no-watermark2.p.rapidapi.com"
         }
 
